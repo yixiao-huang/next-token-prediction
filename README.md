@@ -17,4 +17,4 @@ scikit_learn
 torch
 ```
 
-### Reproducing Results # next-token-prediction
+### Reproducing Results 

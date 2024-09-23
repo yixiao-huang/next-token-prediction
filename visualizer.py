@@ -137,7 +137,7 @@ def show_norm_diff(ITN, dlist, Wdiff_norm_list, local_Wdiff_norm_list= None, use
             label=labels[0]
         else:
             label=' ' * 10
-        if len(dlist) > 0:
+        if len(dlist) > 0 and local_Wdiff_norm_list is None:
             label = r'${} = {}$'.format(para, dlist[idx])
         if interval is not None:
             mean_values = np.mean(Wdiff_norm_list[idx], axis = 0)[:THRED]

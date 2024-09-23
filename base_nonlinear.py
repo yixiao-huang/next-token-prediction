@@ -89,21 +89,24 @@ class MLayerAttn(nn.Module):
             self.prev_out[i] = prev_out
             # SA block 
             if self.factorize_W:
-                if i == self.n_layer - 1:
-                    Qi = self.qlist[i](prev_out[:, -1].unsqueeze(1)) # [n, T, d] -> [n, T, m]
-                    raise NotImplementedError("Under construction")
-                    # if cross_attn is not None:
-                    #     Qi = self.qlist[i](cross_attn) # [m, d] -> [m, d]
-                    # else:
-                    #     Qi = self.qlist[i](prev_out) # [n, T, d] -> [n, T, m]
-                else:
-                    Qi = self.qlist[i](prev_out)
+                # if i == self.n_layer - 1:
+                #     Qi = self.qlist[i](prev_out[:, -1].unsqueeze(1)) # [n, T, d] -> [n, T, m]
+                #     raise NotImplementedError("Under construction")
+                #     # if cross_attn is not None:
+                #     #     Qi = self.qlist[i](cross_attn) # [m, d] -> [m, d]
+                #     # else:
+                #     #     Qi = self.qlist[i](prev_out) # [n, T, d] -> [n, T, m]
+                # else:
+                Qi = self.qlist[i](prev_out)
                 Ki = self.klist[i](prev_out) # [n, T, d] -> [n, T, m]
                 Ai = torch.softmax(Qi @ Ki.transpose(-2, -1), dim=-1) # -> [n, T, T]
             else:
-                if i == self.n_layer - 1:
-                    QKi = self.qklist[i](prev_out[:, -1].unsqueeze(1))
-                    raise NotImplementedError("Under construction")
+                # if i == self.n_layer - 1:
+                #     QKi = self.qklist[i](prev_out[:, -1].unsqueeze(1))
+                #     raise NotImplementedError("Under construction")
+                # else:
+                if i == self.n_layer - 1 and cross_attn is not None:
+                    QKi = self.qklist[i](cross_attn)
                 else:
                     QKi = self.qklist[i](prev_out)
                     
