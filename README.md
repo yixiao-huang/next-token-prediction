@@ -26,5 +26,3 @@ scikit_learn==0.24.1
 torch==1.8.1
 ```
 
-### Paper link 
-You can check more details at https://arxiv.org/abs/2403.08081
