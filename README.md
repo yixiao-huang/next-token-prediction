@@ -1,5 +1,7 @@
 
-# Mechanics of Next Token Prediction with Transformers
+# Mechanics of Next Token Prediction with Self-Attention
+Code for [Mechanics of Next Token Prediction with Self-Attention](https://arxiv.org/abs/2403.08081). Yingcong Li*, Yixiao Huang*, M. Emrullah Ildiz, Ankit Singh Rawat, and Samet Oymak
+International Conference on Artificial Intelligence and Statistics (AISTATS), 2024
 
 ### Abstract
 Transformer-based language models are trained on large datasets to predict the next token given an input sequence. Despite this simple training objective, they have led to revolutionary advances in natural language processing. Underlying this success is the self-attention mechanism. In this work, we ask: *What does a single self-attention layer learn from next-token prediction?* 
